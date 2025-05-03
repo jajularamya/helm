@@ -8,7 +8,7 @@ metadata:
     tier: frontend
     purpose: deployment
 spec:
-  replicas: {{ .values.deployment.replicas }} #assume this will change
+  replicas: {{ .Values.deployment.replicas }} #assume this will change
   selector:
     matchLabels:
       app: nginx
@@ -23,6 +23,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:{{ .values.deployment.imageVersion }}
+        image: nginx:{{ .Values.deployment.imageVersion }} # image version frequently changes
         ports:
-        - containerPort: 80 #image version frequently changes
+        - containerPort: 80
